@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>jQuery bootstrap-select</title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+<style>
+.sp{width: 500px;}
+ .sp span{
+	height:34px;
+	background:#32bcec;
+	line-height:34px;
+	text-align:center;
+	display:block;
+	padding:0px 10px;
+	margin-right:10px;
+	color:#fff;
+	border-radius:5px;
+	cursor:pointer;
+	float:left;
+	margin-bottom:10px;
+}
+.dropdown-toggle img{
+	
+	cursor:pointer;
+}
+</style>
+</head>
+<body>
+    <div class="sp">
+		<span title="0">安徽</span>
+    </div>
+	<select id="id_select" class="selectpicker bla bla bli" multiple data-live-search="true">
+        <option>上海</option>
+        <option>南京</option>                  
+        <option>北京</option>        
+        <option selected>安徽</option>       
+        <option>中国</option>
+        <option>上海</option>
+        <option>南京</option>                  
+        <option>北京</option>
+        <option>上海</option>
+        <option>南京</option>                  
+        <option>北京</option>
+        <option>上海</option>
+        <option>南京</option>                  
+        <option>北京</option>
+	</select>
+</body>
+<script type="text/javascript">
+ $(window).on('load', function () {
+	$('.selectpicker').selectpicker({
+		'selectedText': 'cat'
+	});
+	$('.dropdown-toggle').replaceWith("<a class= 'dropdown-toggle' data-toggle='dropdown' data-id='id_select' aria-expanded='true'><span class='filter-option pull-left' style='display:none;'></span><img src='img/add.png'></a>");
+	$('.selectpicker').on('change',function () {
+		str=$(this).next(".bootstrap-select").find(".filter-option").html();
+		var sa=str.split(",");
+		var i;
+		$(this).parent().find(".sp").html(' ');
+		if(str=="请选择"){
+			$(this).parent().find(".sp").html(' ');	
+			$(this).parent().height(46);
+		}else{
+			for(i=0;i<sa.length;i++){
+			  $(this).parent().find(".sp").html($(this).parent().find(".sp").html()+'<span title="'+sa[i]+'">'+sa[i]+"</span>");
+			}
+			$(this).parent().height($(this).parent().find(".sp").height());
+		}
+	});
+ }); 
+  </script>
+</html>

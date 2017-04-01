@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>开始测试</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<style>
+	.icon1{
+		position: relative;
+	}
+	.icon1 img{
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
+	}
+	.icon1 input{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
+		opacity: 0;
+	}
+	
+</style>
+</head>
+<body>
+<div class="icon1">
+	<img src="img/head.png">
+	<input type="file">
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+	function getObjectURL(file) {
+	var url = null ; 
+	if (window.createObjectURL!=undefined) { // basic
+		url = window.createObjectURL(file) ;
+	} else if (window.URL!=undefined) { // mozilla(firefox)
+		url = window.URL.createObjectURL(file) ;
+	} else if (window.webkitURL!=undefined) { // webkit or chrome
+		url = window.webkitURL.createObjectURL(file) ;
+	}
+	return url ;
+}
+$('.icon1').find('input').change(function(){
+	var objUrl = getObjectURL(this.files[0]) ;
+	if (objUrl){
+		$('.icon1').find('img').attr("src", objUrl);
+	}
+});
+</script>
+</body>
+</html>

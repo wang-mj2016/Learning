@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/layout.css" />
+		<style>
+			.box1{
+				width: 100px;
+				height: 100px;
+				background: red;
+				float: left;
+			}
+			.box2{
+				width: 100px;
+				height: 100px;
+				background: blue;
+				float: left;
+			}
+			.box-af{
+				margin-top: 20px;
+				width: 200px;
+				height: 100px;
+				background: red;
+				position: relative;
+				margin-bottom: 20px;
+			}
+			.box-af:after{
+				content: "";
+				position: absolute;
+				left: 5px;
+				bottom: 0;
+				height: 5px;
+				border-left: 1px solid black;
+			}
+			.trig{
+				width: 200px;
+				height: 200px;
+				background: #eee;
+			}
+			.ll{
+				width: 0;
+				height: 0;
+				border: 20px solid blue;
+				border-top: 20px solid black;
+				border-right: 20px solid red;
+				border-bottom: 20px solid black;
+				border-left: 20px solid red;
+			}
+			.box-one{
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box clearfloat">
+			<div class="box1">aaa</div>
+			<div class="box2"></div>
+			<div class="clf"></div>
+		</div>
+		<div class="box-af">
+			
+		</div>
+		<div class="trig">
+			<div class="ll"></div>
+		</div>
+		<div class="cont public-container"></div>
+		<div class="menu-list public-container">
+			<ul class="clearfloat">
+				<li>
+					啦啦啦啦啦啦啦啦啦啦啦
+				</li>
+				<li>
+					111111111111111111
+				</li>
+				<li>
+					啦啦啦啦啦啦啦啦啦啦啦
+				</li>
+				<li>
+					111111111111111111
+				</li>
+				<li>
+					啦啦啦啦啦啦啦啦啦啦啦
+				</li>
+				<li>
+					111111111111111111
+				</li>
+				<li>
+					啦啦啦啦啦啦啦啦啦啦啦
+				</li>
+				<li>
+					111111111111111111
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!--让IE的文档模式永远都是最新的-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>临时存放</title>
+<link rel="stylesheet" href="css/reset.css" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+ body{
+ 	padding: 30px;
+ }
+ button{
+ 	background: #14A5EB;
+ 	color: #fff;
+ 	padding: 5px 10px;
+ 	border-radius: 5px;
+ }
+ .float-box{
+ 	width: 100px;
+ 	height: 100px;
+ 	margin-top: 30px;
+ 	text-align: center;
+ 	border: 1px solid red;
+ }
+</style>
+</head>
+<body>
+
+<button>点我出来一个浮框，1s钟消失</button>
+
+<div class="float-box hide">
+	我是一个浮框，一会就消失
+</div>
+
+
+	
+<script src="js/jquery.min.js"></script>
+<script>
+$('button').click(function(){
+//	$('.float-box').css("display","block");
+	$('.float-box').stop().fadeIn(500);
+	setTimeout(function(){
+		$('.float-box').stop().fadeOut(500);
+	},1000)
+})
+
+
+</script>
+</body>
+</html>

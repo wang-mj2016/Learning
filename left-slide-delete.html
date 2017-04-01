@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!--让IE的文档模式永远都是最新的-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>左滑显示删除按钮</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/mui.min.css" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+	
+</style>
+</head>
+<body>
+	<div class="mui-content">
+		<ul id="OA_task_1" class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<div class="mui-slider-right mui-disabled">
+					<a class="mui-btn mui-btn-red">删除</a>
+				</div>
+				<div class="mui-slider-handle">
+					左滑显示删除按钮
+				</div>
+			</li>
+		</ul>
+	</div>
+<!--<script src="js/vue.min.js"></script>-->
+<script src="js/jquery.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/update.js"></script>
+<script>
+	mui.init();
+	(function($) {
+		//$.swipeoutOpen(el,direction)//打开指定列的滑动菜单，el:指定列的dom对象，direction：取值left|right，指定打开的是左侧或右侧滑动菜单
+		//$.swipeoutClose(el);//关闭指定列的滑动菜单，el:指定列的dom对象
+		//				setTimeout(function() {
+		//					$.swipeoutOpen(document.getElementById("OA_task_1").querySelector('li:last-child'), 'left');
+		//					setTimeout(function() {
+		//						$.swipeoutClose(document.getElementById("OA_task_1").querySelector('li:last-child'));
+		//					}, 1000);
+		//				}, 1000);
+		//第一个demo，拖拽后显示操作图标，点击操作图标删除元素；
+		$('#OA_task_1').on('tap', '.mui-btn', function(event) {
+			var elem = this;
+			var li = elem.parentNode.parentNode;
+			mui.confirm('确认删除该条记录？', 'Hello MUI', btnArray, function(e) {
+				if (e.index == 0) {
+					li.parentNode.removeChild(li);
+				} else {
+					setTimeout(function() {
+						$.swipeoutClose(li);
+					}, 0);
+				}
+			});
+		});
+		var btnArray = ['确认', '取消'];
+	})(mui);
+</script>
+</body>
+</html>

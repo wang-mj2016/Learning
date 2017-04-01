@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+</style>
+</head>
+<body>
+	<h3>操作成功</h3>
+	<span id="time">5</span><span>秒后回到主页</span><a href="javascript:back()">返回</a>
+	<br />
+<script type="text/javascript">
+//  设置定时器改变秒数，符合条件，清除定时器。
+    var num=document.getElementById("time").innerHTML;
+    function count(){
+    	num--;
+	   	document.getElementById("time").innerHTML=num;
+	   	if(num==0){
+	   		clearInterval(d);
+	   	};
+    };
+    var d = setInterval('count()',1000);
+    function back(){
+    	history.back();
+    };
+//  XXXX年XX月X日 星期X--班级总分为:81，平均分：55
+	var currentDate = new Date();
+	var weekday = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+	document.write(
+		currentDate.getFullYear()+"年"+currentDate.getMonth()+"月"+currentDate.getDate()+"号"+" "+weekday[currentDate.getDay()]
+	);
+	var sourcestr = "小明：87;笑话：33;学校：23;啦啦：88";
+	var sourcearr = sourcestr.split(";")
+	document.write("<br>"+sourcearr);
+	var numscore = 0;
+	for ( var i=0;i<sourcearr.length;i++) {
+		numscore += parseInt(sourcearr[i].substr(3,2));
+		document.write("<br>"+numscore);
+	}
+
+</script>
+</body>
+</html>

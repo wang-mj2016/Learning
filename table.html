@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		*{padding: 0;margin: 0;}
+		table td,table th,table tr{margin: 0;padding: 0;border: none;}
+		table{width: 1000px;}
+		table tbody{height: 50px;overflow-y: scroll;display: block;}
+		table thead,table tbody tr{display: table;width: 100%;table-layout: fixed;}
+		table thead {width: calc(100% - 1em);width: -webkit-calc(100% - 1em);width: -moz-calc(100% - 1em);}
+		/*table thead{width: 979px;}*/
+		table th.one{width: 20%;background: red;}
+		table th.two{width: 20%;background: blue;}
+		table th.three{width: 20%;background: yellow;}
+		table td.one{width: 20%;background: red;}
+		table td.two{width: 20%;background: blue;}
+		table td.three{width: 20%;background: yellow;}
+	</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th class="one">1111111111</th>
+				<th class="two">1111111111111</th>
+				<th class="three">1111111111111</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td class="one">222222222222223</td>
+				<td class="two">23333333333</td>
+				<td class="three">2333333333333</td>
+			</tr>
+			<tr>
+				<td>222222222222223</td>
+				<td>23333333333</td>
+				<td>2333333333333</td>
+			</tr>
+			<tr>
+				<td>222222222222223</td>
+				<td>23333333333</td>
+				<td>2333333333333</td>
+			</tr>
+			<tr>
+				<td>222222222222223</td>
+				<td>23333333333</td>
+				<td>2333333333333</td>
+			</tr>
+			<tr>
+				<td>222222222222223</td>
+				<td>23333333333</td>
+				<td>2333333333333</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

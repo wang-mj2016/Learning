@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<link href="css/reset.css" rel="stylesheet" />
+<style>
+	button{
+		padding: 6px 12px;
+		font-size: 14px;
+		background: #00CCFF;
+		color: #fff;
+	}
+	.pop{
+		margin-top: 20px;
+		width: 200px;
+		height: 200px;
+		background: #6699ff;
+		color: #fff;
+	}
+</style>
+<title>点击弹出框以外，弹出框消失</title>
+</head>
+<body>
+<button>点击</button>
+<div class="pop hide">
+	我是弹出框
+</div>
+<script src="js/jquery.min.js"></script>
+<script>
+	$('button').click(function(){
+		if(!$('.pop').is(":visible")){
+			$('.pop').show();
+			return false;
+		}
+	});
+	$(document).bind("click",function(e){
+		var target = $(e.target);
+		if(target.closest(".pop").length == 0 ){
+			$('.pop').hide();
+		}
+	});
+</script>
+</body>
+</html>

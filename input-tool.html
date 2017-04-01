@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!--让IE的文档模式永远都是最新的-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>临时存放</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<style>
+body{
+	background: #eee;
+	overflow: hidden;
+}
+.container{
+	/*position: relative;*/
+}
+
+.container .st-cont{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	
+}
+.container .st-cont > input,
+.container .st-cont > a{
+	width: 50%;
+	height: 50px;
+	line-height: 50px;
+	position: fixed;
+	bottom: 0;
+	cursor: pointer;
+}
+.container .st-cont > input{
+	opacity: 0;
+	z-index: 999;
+}
+.container .st-cont > a{
+	z-index: 99;
+	font-weight: 700;
+	font-size: 16px;
+	text-align: center;
+	background: #b6d7a8;
+	color: #fff;
+}
+.container .st-cont #st-con1,
+.container .st-cont #st-con1 + a{
+	left: 0%;
+}
+.container .st-cont #st-con2,
+.container .st-cont #st-con2 + a{
+	left: 50%;
+}
+.container .st-cont > input:checked + a{
+	background: #00ccff !important;
+}
+.container .st-cont > input:checked + a:after{
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -20px;
+	content: "";
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border: 20px solid transparent;
+	border-bottom-color: #00CCFF;
+}
+.container .st-cont > input:hover + a{
+	background: #c9daf8;
+}
+
+.st-scroll,
+.st-panel{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.st-scroll{
+	left: 0;
+	top: 0;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);
+	-o-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: all 0.6s ease-in-out;
+	-moz-transition: all 0.6s ease-in-out;
+	-ms-transition: all 0.6s ease-in-out;
+	-o-transition: all 0.6s ease-in-out;
+	transition: all 0.6s ease-in-out;
+}
+.container .st-cont #st-con1:checked ~ .st-scroll{
+	-webkit-transform: translateY(0%);
+	-moz-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	-o-transform: translateY(0%);
+	transform: translateY(0%);
+}
+.container .st-cont #st-con2:checked ~ .st-scroll{
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+.container .st-cont .st-scroll h2{
+	color: #e23a6e;
+	font-size: 65px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: 900;
+	padding-top: 10%;
+	margin-bottom: 50px;
+}
+.container .st-cont .st-scroll p{
+	color: #888;
+	font-size: 16px;
+	line-height: 22px;
+	text-align: center;
+}
+.container .st-cont #st-con1:checked ~ .st-scroll #st-pa1 h2,
+.container .st-cont #st-con2:checked ~ .st-scroll #st-pa2 h2{
+	-webkit-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+	-moz-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+	-ms-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+	-o-animation: moveDown 0.6s ease-in-out 0.2s backwards;
+	animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+.container .st-cont #st-con1:checked ~ .st-scroll #st-pa1 p,
+.container .st-cont #st-con2:checked ~ .st-scroll #st-pa2 p{
+	-webkit-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+	-moz-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+	-ms-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+	-o-animation: moveUp 0.6s ease-in-out 0.2s backwards;
+	animation: moveUp 0.6s ease-in-out 0.2s backwards;
+}
+/*向下移动*/
+@-webkit-keyframes moveDown{
+	0%{
+		-webkit-transform: translateY(-40px);
+		opacity: 0;
+	}
+	100%{
+		-webkit-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@-moz-keyframes moveDown{
+	0%{
+		-moz-transform: translateY(-40px);
+		opacity: 0;
+	}
+	100%{
+		-moz-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@-ms-keyframes moveDown{
+	0%{
+		-ms-transform: translateY(-40px);
+		opacity: 0;
+	}
+	100%{
+		-ms-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@-o-keyframes moveDown{
+	0%{
+		-o-transform: translateY(-40px);
+		opacity: 0;
+	}
+	100%{
+		-o-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@keyframes moveDown{
+	0%{
+		transform: translateY(-40px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+/*向上移动*/
+@-webkit-keyframes moveUp{
+	0%{
+		-webkit-transform: translateY(40px);
+		opacity: 0;
+	}
+	100%{
+		-webkit-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@-moz-keyframes moveUp{
+	0%{
+		-moz-transform: translateY(40px);
+		opacity: 0;
+	}
+	100%{
+		-moz-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@-ms-keyframes moveUp{
+	0%{
+		-ms-transform: translateY(40px);
+		opacity: 0;
+	}
+	100%{
+		-ms-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@-o-keyframes moveUp{
+	0%{
+		-o-transform: translateY(40px);
+		opacity: 0;
+	}
+	100%{
+		-o-transform: translateY(0px);
+		opacity: 1;
+	}
+}
+@keyframes moveUp{
+	0%{
+		transform: translateY(40px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="st-cont">
+		<input type="radio" name="radio-set" id="st-con1" checked="checked" />
+		<a href="#st-pa1">aaaaaaa</a>
+		<input type="radio" id="st-con2" name="radio-set" />
+		<a href="#st-pa2">bbbbbbb</a>
+		<div class="st-scroll">
+			<section class="st-panel" id="st-pa1">
+				<div class="st-desc" data-icon="H"></div>
+				<h2>aaa aa</h2>
+				<p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+			</section>
+			<section class="st-panel" id="st-pa2">
+				<div class="st-desc" data-icon="2"></div>
+				<h2>bbbbbb</h2>
+				<p>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</p>
+			</section>
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

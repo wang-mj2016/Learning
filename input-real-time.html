@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!--让IE的文档模式永远都是最新的-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>开始测试</title>
+<link rel="stylesheet" href="css/reset.css" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+.aa{
+	display: block;
+	width: 50%;
+	margin: 20px auto;
+}
+</style>
+</head>
+<body>
+<input class="aa" id="inputTeat" placeholder="金额" type="text"  />
+<input id="input" class="input aa" placeholder="输入金额" />
+<div class="balance aa">55</div>
+<script src="js/jquery.min.js"></script>
+<script>
+//	console.log(document.querySelector('#input').oninput = function(){})
+	
+	document.querySelector('#input').oninput = function(){
+		this.style.background = "red";
+	}
+	
+//	$('#input').on('change', function() {
+//		$(this).css('background','red');
+//	})
+</script>
+</body>
+</html>

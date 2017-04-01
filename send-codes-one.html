@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>发送验证码</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<style>
+input{
+	margin: 50px 0px 0px 50px;
+	border-radius: 5px;
+}
+input.phone{
+	height: 30px;
+	width: 200px;
+	border: 1px solid #ccc;
+}
+input.obtain{
+	background: #00CCFF;
+	cursor: pointer;
+	padding: 6px 12px;
+	color: #fff;
+}
+input.obtain.active{
+	background: #999;
+	cursor: not-allowed !important;
+}
+input.phone.active{
+	border-color: red;
+}
+</style>
+</head>
+<body>
+	
+<input class="phone" id="phone" type="text" />
+<input class="obtain" id="get_yzm" type="button" value="获取验证码" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+$(function(){
+//	手机发送验证码
+	var time = 0;
+	var checked = 1;
+    $('.obtain').click(function(){
+//  	验证手机号码
+        var phone = $.trim($('#phone').val());
+        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        if(!myreg.test(phone)){
+//              alert('请输入有效的手机号码！');
+			$('.phone').addClass('active');
+            $("#phone").focus();
+            return false;
+        }
+		if(time>0){
+			return false;
+		}
+		function timeCountDown(){
+			if(checked == 1){
+				time = 5;
+				checked = 0;
+				/*发短信*/
+				//alert('get ajax content');
+//		            var query_url = '/common/ajax/send_msg';
+//		            var send = {'phone' : phone};
+//		            $.post(query_url , send , function(data){
+//		                if(data.success){
+//		                    /*alert('已发送，请注意查收');*/
+//		                }else{
+//		                    return false;
+//		                }
+//		            } , 'json')
+				
+			}
+			$('.phone').removeClass('active');
+			$('.obtain').addClass('active');
+			$('.obtain').val(time+"S后重发");
+			time--;
+			if(time < 0){
+				$('.obtain').removeClass('active');
+				$('.obtain').val("获取验证码");
+				clearInterval(timer);
+				checked = 1;
+			}
+			return false;
+		}
+		timeCountDown();
+		var timer = setInterval(timeCountDown,1000);
+    });
+
+})
+</script>
+</body>
+</html>

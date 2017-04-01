@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>开始测试</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/layout.css" />
+</head>
+<body>
+	<select>
+		<option value="">请选择juanjuan</option>
+		<option value="kk">王明娟</option>
+		<option value="dd">王明娟</option>
+		<option value="aa">王明娟</option>
+	</select>
+<script src="js/jquery.min.js"></script>
+<script>
+	$(function(){
+
+	/*选择默认为浅灰色*/
+		var _thisSelect = $("select");
+		yuwqColor();
+		_thisSelect.change(function(){
+			yuwqColor(this);
+		});
+	/*颜色状态控制*/
+		 function yuwqColor(obj){
+	
+		/*选择默认为浅灰色*/
+			if (!obj) {
+				var _thisSelect2 =  $("select");
+			} else {
+				var _thisSelect2 = $(obj);
+			}
+			var _thisVal = _thisSelect2.val();
+			console.log(_thisVal);
+			if(!_thisVal){
+				_thisSelect.css('color','#aaa');
+			}else{
+				_thisSelect.css('color','#333');
+			}
+		
+		};
+	
+	});
+</script>
+</body>
+</html>

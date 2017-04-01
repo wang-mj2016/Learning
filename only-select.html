@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>单选搜索选择</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="css/jquery.searchableSelect.css" />
+<link rel="stylesheet" href="css/reset.css" />
+</head>
+<body>
+<select class="search-s">
+	<option value="">复旦大学</option>
+	<option value="">北京大学</option>
+	<option value="">交通大学</option>
+</select>
+<select class="search-s">
+	<option value="">复旦大学</option>
+	<option value="">北京大学</option>
+	<option value="">交通大学</option>
+</select>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.searchableSelect.js"></script>
+<script type="text/javascript">
+//单选搜索选择
+$(document).ready(function() {
+	$('select.search-s').searchableSelect();
+});
+</script>
+</body>
+</html>

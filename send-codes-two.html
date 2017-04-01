@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>发送验证码</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<style>
+.ooc-login-input .input-list{
+	padding: 0 8%;
+}
+.ooc-login-input .input-list .item{
+	padding: 10px 0;
+	border-bottom: 1px solid #F2F2F2;
+	font-size: 14px;
+	color: #4D9DF7;
+}
+.ooc-login-input .input-list .item.active{
+	border-color: #ff4064;
+}
+.ooc-login-input .input-list .item .l:first-child{
+	width: 75px;
+}
+.ooc-login-input .input-list .item img{
+	width: 20px;
+	height: 20px;
+}
+.ooc-login-input .input-list .item input{
+	height: 23px;
+	width: 68%;
+	padding-left: 10px;
+}
+.ooc-login-input .input-list .item.phone-box input{
+	width: 37%;
+}
+.ooc-login-input .input-list .item.phone-box .r{
+	width: 80px;
+	height: 23px;
+	line-height: 23px;
+	text-align: center;
+	border: 1px solid #999;
+	color: #999;
+	border-radius: 11.5px;
+}
+.ooc-login-input .input-list .item.phone-box .r.active{
+	color: #4D9DF7;
+	border: 1px solid #4D9DF7;
+}
+.ooc-login-foot{
+	padding: 0 8%;
+	margin-top: 30px;
+}
+.ooc-login-foot img{
+	width: 90%;
+	margin: 0 auto;
+}
+.ooc-login-foot .btn{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+	text-align: center;
+	border-radius: 20px;
+}
+.ooc-login-foot .btn.login{
+	background: #4D9DF7;
+	color: #fff;
+	margin-bottom: 10px;
+}
+.ooc-login-foot .btn.look{
+	background: #F2F2F2;
+	color: #666;
+}
+</style>
+</head>
+<body>
+<form class="ooc-login-input">
+	<ul class="input-list">
+		<li class="item clearfloat">
+			<div class="l">
+				<img class="v" src="img/three.png" />
+				<span class="v">姓名</span>
+			</div>
+			<input class="l" placeholder="输入姓名" />
+		</li>
+		<li class="item clearfloat">
+			<div class="l">
+				<img class="v" src="img/three.png" />
+				<span class="v">学校</span>
+			</div>
+			<input class="l" placeholder="输入学校" />
+		</li>
+		<li class="item clearfloat phone-box">
+			<div class="l">
+				<img class="v" src="img/three.png" />
+				<span class="v">手机号</span>
+			</div>
+			<input class="l" name='phone' placeholder="输入手机号码" />
+			<div class="r">
+				<span class="send">发送验证码</span>
+				<span class="hide countdown"></span>
+			</div>
+		</li>
+		<li class="item clearfloat">
+			<div class="l">
+				<span>输入验证码</span>
+			</div>
+			<input class="l" placeholder="输入验证码" />
+		</li>
+	</ul>
+</form>
+<footer class="ooc-login-foot">
+	<div class="btn login">确认登录</div>
+	<div class="btn look">先去看看</div>
+</footer>
+
+
+<script src="js/jquery.min.js"></script>
+<script>
+//确认登录不能为空，为空则出现红框
+$('.ooc-login-foot .login').click(function(){
+//	通过遍历input当为空的时候找到它的父亲
+	$('.input-list input').each(function(){
+		var val = $(this).val();
+		if(val == '') {
+			$(this).parent().addClass('active');		
+			return false;
+		}
+	});
+//	ajax验证手机验证码，当返回为true时提交表单，data.success为true时；
+	
+//	$('form').Submit();
+//	return true;
+	
+})
+//当每一个输入框做输入的时候,红框消失
+$('.input-list input').each(function(){
+	$(this).on('input',function(){
+		var val = $(this).val();
+		if(!val == ''){
+			$(this).parent().removeClass('active');
+		}else{
+			$(this).parent().addClass('active');
+		}
+		//当输入手机号码时做验证
+		if($(this).attr('name') == 'phone'){
+			var phone = $.trim($(this).val());
+	        var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+	        var ipparent = $(this).parent();
+	        if(!myreg.test(phone)){
+				ipparent.addClass('active');
+				ipparent.find('.r').removeClass('active');
+				if(ipparent.find('.send').hasClass('hide')){
+					ipparent.find('.r').addClass('active');
+				}
+	            return false;
+	        }
+	        ipparent.removeClass('active');
+	        ipparent.find('.r').addClass('active');
+	        ipparent.find('.r').find('.send').click(function(){
+	        	$(this).addClass('hide');
+	        	$(this).siblings('.countdown').removeClass('hide');
+	        	setcounttime();
+//	        	ajax发送验证码
+				var query_url = '';
+				var send = {};
+				$.post(query_url , send , function(data){
+					if(data.success){
+						alert('已发送');
+					}else{
+						alert('系统正忙，请稍后再试');
+					}
+			
+					
+				} , 'json');
+				
+				
+				
+	        })
+		}
+	});
+})
+//倒计时
+function setcounttime(){
+	var time = 5;
+	$('.countdown').html(time+'s后重发');
+	function counttime(){
+		time --;
+		$('.countdown').html(time+'s后重发');
+		if(time==0){
+			clearInterval(timer);
+			$('.countdown').addClass('hide');
+			$('.send').removeClass('hide');
+		}
+	}
+	var timer = setInterval(counttime,1000)
+}
+</script>
+</body>
+</html>

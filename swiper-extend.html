@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="">
+<meta name="copyright" content="">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!--让IE的文档模式永远都是最新的-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>swiper扩展</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/swiper.min.css" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+html, body {
+    position: relative;
+    height: 100%;
+}
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+</style>
+</head>
+<body>
+<div class="swiper-container swiper-container-v">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">slider1</div>
+    <div class="swiper-slide">slider2</div>
+    <div class="swiper-slide">slider3</div>
+  </div>
+  <div class="swiper-pagination swiper-pagination-v"></div>
+</div>
+
+   <!--<div class="swiper-container swiper-container-v">    
+       <div class="swiper-wrapper">    
+           <div class="swiper-slide">Vertical Slide 1</div>    
+           <div class="swiper-slide">-->
+               <!--<div class="swiper-container swiper-container-h">    
+                   <div class="swiper-wrapper">    
+                       <div class="swiper-slide">Horizontal Slide  1</div>    
+                       <div class="swiper-slide">Horizontal Slide  2</div>    
+                       <div class="swiper-slide">Horizontal Slide  3</div>    
+                       <div class="swiper-slide">Horizontal Slide  4</div>    
+                       <div class="swiper-slide">Horizontal Slide  5</div>    
+                   </div>    
+                   <div class="swiper-pagination swiper-pagination-h"></div>    
+               </div>    -->
+               <!--Vertical Slide 2
+           </div>    
+           <div class="swiper-slide">Vertical Slide 3</div>     
+       </div>    
+       <div class="swiper-pagination swiper-pagination-v"></div>    
+   </div>-->
+
+<!--<button onclick="clickone()">我是按钮</button>-->
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+// var swiperV = new Swiper('.swiper-container-v', {    
+//     pagination: '.swiper-pagination-v',    
+//     paginationClickable: true,    
+//     direction: 'vertical',    
+//     spaceBetween: 50
+// }); 
+// var swiperH = new Swiper('.swiper-container-h', {    
+//     pagination: '.swiper-pagination-h',    
+//     paginationClickable: true,    
+//     spaceBetween: 50    
+// }); 
+
+
+
+
+
+var lastIndex = 0;
+var mySwiperV = new Swiper('.swiper-container-v', {
+		pagination: '.swiper-container-v',
+		paginationClickable: true,  
+    direction: 'vertical',
+    onTransitionStart: function(swiper){
+      if (lastIndex === 2 && swiper.activeIndex === 2) {
+        window.location.href = 'http://www.baidu.com';
+      }
+      lastIndex = swiper.activeIndex;
+    	console.log(swiper.activeIndex);
+    }
+})
+
+//var lastIndex = 0;
+//var mySwiper = new Swiper('.swiper-container', {
+//	pagination: '.swiper-pagination',
+//          paginationClickable: true,
+//  onSlideChangeStart: function(swiper){
+//    if (lastIndex === 2 && swiper.activeIndex < 2) {
+//      window.location.href = 'http://www.baidu.com';
+//    }
+//    lastIndex = swiper.activeIndex;
+//  }
+//})
+
+
+
+
+</script>
+</body>
+</html>

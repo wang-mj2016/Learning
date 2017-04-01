@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!--让IE的文档模式永远都是最新的-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>tab切换</title>
+<link rel="stylesheet" href="css/reset.css" />
+<!--<link rel="stylesheet" href="css/mui.min.css" />-->
+<link rel="stylesheet" href="css/swiper.min.css" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+.nav,
+.nav-cont{
+	width: 300px;
+	margin: 0 auto;
+}
+.nav{
+	border-bottom: 1px solid #ccc;
+}
+.nav li{
+	float: left;
+	width: 25%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+}
+.nav li.active{
+	color: #00CCFF;
+}
+.nav-cont{
+	padding: 20px;
+}
+
+
+
+</style>
+</head>
+<body>
+<ul class="nav clearfloat" title="1">
+	<li class="active">导航一</li>
+	<li>导航二</li>
+	<li>导航三</li>
+	<li>导航四</li>
+</ul>
+<ul class="nav-cont">
+	<li>我是导航一的内容</li>
+	<li class="hide">我是导航二的内容</li>
+	<li class="hide">我是导航三的内容</li>
+	<li class="hide">我是导航四的内容</li>
+</ul>
+	
+<script src="js/jquery.min.js"></script>
+<!--<script src="js/mui.min.js"></script>-->
+<script src="js/swiper.min.js"></script>
+<script>
+$('.nav li').click(function(){
+	var i = $(this).index();
+	$(this).addClass('active').siblings('li').removeClass('active');
+	$('.nav-cont li').eq(i).removeClass('hide').siblings('li').addClass('hide');
+})
+
+
+
+//var mySwiper1 = new Swiper('.nav li',{
+//	onTap: function(swiper){
+////  	$(".service .career>li").eq(i).removeClass("hide").siblings('li').addClass('hide');
+////    $(this).addClass('active').siblings('li').removeClass('active');
+//    console.log(this)
+//  }
+//})
+
+
+</script>
+</body>
+</html>

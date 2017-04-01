@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<title>多选同一行</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-select.css">
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-select.js"></script>
+</head>
+<body>
+    <label>选择年级</label>
+    <select class="selectpicker-one" multiple data-live-search="true">
+        <option>cow</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+    </select>
+    
+    <select class="selectpicker-on" multiple data-live-search="true">
+        <option>cow</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+        <option>bull</option>
+        <option>ox</option>
+    </select>
+<script type="text/javascript">
+$(window).on('load', function () {
+	$('.selectpicker-one').selectpickerone({
+		noneSelectedText : '请选择ll'
+	});
+	$('.selectpicker-on').selectpickerone({
+		noneSelectedText : '请选择lllll'
+	});
+});
+</script>
+</body>
+</html>

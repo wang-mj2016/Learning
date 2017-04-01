@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>多项搜索选择</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="css/bootstrap-select.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<style>
+.course-list .length{
+	width: 900px;
+}
+.course-list .item .list-left{
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14px;
+	color: #999;
+	margin-right: 15px;
+	margin-bottom: 0px;
+}
+.course-list .item .select-item{
+	vertical-align: top;
+	display: inline-block;
+	width: 80%;
+	margin: 0;
+}
+.course-list .item .select-item .sp{
+	max-width: 65%;
+	overflow:hidden;
+	float:left;
+}
+.course-list .item .select-item .sp span{
+	float:left;
+	padding: 6px 11px;
+	background:#32bcec;
+	margin-right:10px;
+	margin-bottom:10px;
+	margin-top: 5px;
+	color:#fff;
+	border-radius:5px;
+	cursor:pointer;
+	font-size: 12px;
+}
+</style>
+</head>
+<body>
+<ul class="course-list">
+	<li class="item length">
+		<span class="list-left">适用课程</span>
+		<div class="select-item">
+			<div class="sp">
+				<!--<span title="0"></span>-->
+		    </div>
+			<select id="id_select" class="selectpicker" multiple data-live-search="true">
+		        <option>上海</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+			</select>
+		</div>
+	</li>
+	<li class="item length">
+		<span class="list-left">适用课程</span>
+		<div class="select-item">
+			<div class="sp">
+				<!--<span title="0"></span>-->
+		    </div>
+			<select id="id_select_two" class="selectpicker" multiple data-live-search="true">
+		        <option>上海</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+			</select>
+		</div>
+	</li>
+	<li>lallalall</li>
+</ul>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script>
+//多项搜索选择
+$(window).on('load', function () {
+	$('.selectpicker').selectpicker({
+		'selectedText': 'cat'
+	});
+	$('.replace-btn').replaceWith("<a class= 'dropdown-toggle' data-toggle='dropdown' data-id='id_select' aria-expanded='true'><span class='filter-option pull-left' style='display:none;'></span><img src='img/add.png'></a>");
+	$('.replace-btn').replaceWith("<a class= 'dropdown-toggle' data-toggle='dropdown' data-id='id_select_two' aria-expanded='true'><span class='filter-option pull-left' style='display:none;'></span><img src='img/add.png'></a>");
+	$('.selectpicker').on('change',function () {
+		str=$(this).next(".bootstrap-select").find(".filter-option").html();
+		var sa=str.split(",");
+		var i;
+		$(this).parent().find(".sp").html(' ');
+		if(str=="请选择"){
+			$(this).parent().find(".sp").html(' ');	
+			$(this).parent().height(40);
+		}else{
+			for(i=0;i<sa.length;i++){
+			  $(this).parent().find(".sp").html($(this).parent().find(".sp").html()+'<span title="'+sa[i]+'">'+sa[i]+"</span>");
+			}
+			$(this).parent().height($(this).parent().find(".sp").height());
+		}
+	});
+});
+	
+</script>
+</body>
+</html>

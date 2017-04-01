@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--字体样式-->
+<link rel="stylesheet" href="css/reset.css" type="text/css" />
+
+<!--必要样式-->
+<link rel="stylesheet" href="css/animate.css" type="text/css" />
+
+<title>jQuery给图片点赞加一动画效果 - 站长素材</title>
+<style>
+body
+{
+	margin: 0;
+	padding: 0;
+	font: 12px/1.5 arial;
+	color: #3E3E3E;
+	background:#fff;
+}
+.box h1{
+	color:#14A5EB;
+	font-size:18px;
+	text-align:center;
+	border-top:3px solid #14A5EB;
+	line-height:50px;
+	margin:0px;
+	padding:0px;
+}
+.content{
+	background: #f4f4f4 none repeat scroll 0 0;
+	border-top:1px solid #e7e7e7;
+	border-bottom:1px solid #e7e7e7;
+	margin: 0 auto;
+	min-width: 1180px;
+	width: 100%;
+	
+}
+.content p{
+	
+	color: #333;
+	font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+	outline: medium none;
+	word-wrap: break-word;
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	padding: 40px 0;
+	position: relative;
+	width: 900px;
+}
+.opera{
+	width: 900px;
+	margin: 0px auto;
+	text-align:left;
+}
+.like
+{
+	width: 90px;
+	height: 36px;
+	line-height:36px;
+	background-color:#14A5EB;
+	color: #fff;
+	font-size: 14px;
+	font-family: Microsoft YaHei;
+	cursor: pointer;
+	display:block;
+	text-align:center;
+}
+.like i{          /*必须有*/
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+}
+.like i img{
+	width: 15px;
+	height: 15px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+	<h1>APP主题界面设计大赛</h1>
+	<div class="content">
+		<!--<p>故事从很久很久以前开始，远在宇宙的另一端有一个星球，叫作柚柚星（UU Star）。柚柚星人他们每天过着精彩而又快乐的生活，他们长的就像一只圆圆甜甜的柚子。他们出门或是买东西都开UU飞船，地球人管它叫UFO。他们有很多的圈子，都在这个星球附近，他们有的时候走到这里看看，有时又到那里瞧瞧。柚柚星人很勤劳，为什么这么说呐，因为他们喜欢做记录，无论好坏，总之记录就这么诞生了。他们最爱吃的是柚果，别看柚果不大，那里面有很多很多的能量哦。他们每天起床都会按一下闹钟，新的一天开始了，然后查看火箭有没有送来什么意外的惊喜。如果什么都没有的话，他们的卫星就会重新搜索。故事听到这里是不是觉得很神奇，那我们现在就去柚柚星看看吧！
+		</p>-->
+	</div>
+</div>
+
+<div class="opera">
+	<div id="like" class="like">
+		<i><img src="img/like1.png" /></i> 点击
+	</div>
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+(function ($) {
+	$.extend({
+		tipsBox: function (options) {
+			options = $.extend({
+				obj: null,  //jq对象，要在那个html标签上显示
+				str: "+1",  //字符串，要显示的内容;也可以传一段html，如: "<b style='font-family:Microsoft YaHei;'>+1</b>"
+				startSize: "12px",  //动画开始的文字大小
+				endSize: "30px",    //动画结束的文字大小
+				interval: 600,  //动画时间间隔
+				color: "red",    //文字颜色
+				callback: function () { }    //回调函数
+			}, options);
+			$("body").append("<span class='num'>" + options.str + "</span>");
+			var box = $(".num");
+			var left = options.obj.offset().left + options.obj.width() / 2;
+			var top = options.obj.offset().top - options.obj.height();
+			box.css({
+				"position": "absolute",
+				"left": left + "px",
+				"top": top + "px",
+				"z-index": 9999,
+				"font-size": options.startSize,
+				"line-height": options.endSize,
+				"color": options.color
+			});
+			box.animate({
+				"font-size": options.endSize,
+				"opacity": "0",
+				"top": top - parseInt(options.endSize) + "px"
+			}, options.interval, function () {
+				box.remove();
+				options.callback();
+			});
+		}
+	});
+})(jQuery);
+  
+function niceIn(prop){
+	prop.find('i').addClass('niceIn');
+	setTimeout(function(){
+		prop.find('i').removeClass('niceIn');	
+	},1000);		
+}
+$(function () {
+	$("#like").click(function () {
+		$.tipsBox({
+			obj: $(this),
+			str: "+1",
+			callback: function () {
+			}
+		});
+		niceIn($(this));
+	});
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="">
+<meta name="copyright" content="">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <!--让IE的文档模式永远都是最新的-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<title>开始测试</title>
+<link rel="stylesheet" href="css/reset.css" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+.list{
+	padding: 55px 5px 30px 100px;
+	border-bottom: 1px solid #F2F2F2;
+}
+.list li{
+	position: relative;
+	padding: 0px 0 20px 15px;
+}
+.list li:before{
+	position: absolute;
+	left: 0;
+	top: -30%;
+	content: "";
+	width: 1px;
+	height: 150%;
+	background: #00CCFF;
+}
+.list li:last-child:before{
+	background: transparent;
+}
+.list li span{
+	font-size: 14px;
+	color: #666;
+}
+.list li span.l{
+	width: 87%;
+}
+.list li .dot{
+	position: absolute;
+	top: 8px;
+	left: -2px;
+	width: 5px;
+	height: 5px;
+	border-radius: 100%;
+	background: #00CCFF;
+}
+.list li:first-child .dot,
+.list li:last-child .dot{
+	top: 7px;
+	left: -3px;
+	width: 7px;
+	height: 7px;
+}
+
+</style>
+</head>
+<body>
+<ul class="list">
+	<li class="clearfloat">
+		<div class="dot"></div>
+		<span class="l">浏览课程两分浏览课程两分</span>
+		<span class="r">+2</span>
+	</li>
+	<li class="clearfloat">
+		<div class="dot"></div>
+		<span class="l">经邀请报名经邀</span>
+		<span class="r">+2</span>
+	</li>
+	<li class="clearfloat">
+		<div class="dot"></div>
+		<span class="l">经邀请报名</span>
+		<span class="r">+2</span>
+	</li>
+</ul>
+<ul class="list">
+	<li class="clearfloat">
+		<div class="dot"></div>
+		<span class="l">浏览课程两分浏览课程两分</span>
+		<span class="r">+2</span>
+	</li>
+	<li class="clearfloat">
+		<div class="dot"></div>
+		<span class="l">浏览课程两分</span>
+		<span class="r">+2</span>
+	</li>
+</ul>
+
+
+
+
+</body>
+</html>

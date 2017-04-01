@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>input模拟select选择</title>
+<link rel="stylesheet" href="css/reset.css" />
+<!--<link rel="stylesheet" href="css/cui.css" />-->
+<style>
+.nice-select{
+	float: left;
+	width: 50%;
+	position: relative;
+}
+.nice-select input{
+	display: block;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background: #fff url(img/a2.jpg) no-repeat right center;
+}
+.nice-select ul{
+	width: 100%;
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 45px;
+	overflow: hidden;
+	background-color: #fff;
+	border: 1px solid #F2F2F2;
+	max-height: 120px;
+	overflow-y: auto;
+	border-top: 0;
+	z-index: 9999;
+}
+.nice-select ul li{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	overflow: hidden;
+}
+.nice-select ul li.on{
+	background-color: #F2F2F2;
+}
+</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="nice-select" name="nice-select">
+			<input type="text" placeholder="==相关链接==" readonly>
+			<ul>
+				<li data-value="1">相关链接1</li>
+				<li data-value="2">相关链接2</li>
+				<li data-value="3">相关链接3</li>
+				<li data-value="4">相关链接4</li>
+			</ul>
+		</div>
+		<div class="nice-select" name="nice-select">
+			<input type="text" placeholder="==相关链接==" readonly>
+			<ul>
+				<li data-value="1">相关链接1</li>
+				<li data-value="2">相关链接2</li>
+				<li data-value="3">相关链接3</li>
+				<li data-value="4">相关链接4</li>
+			</ul>
+		</div>
+	</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+//	input模拟select选择
+	$('[name="nice-select"]').click(function(e){
+	    $('[name="nice-select"]').find('ul').hide();
+	    $(this).find('ul').show();
+		e.stopPropagation();
+	});
+	$('[name="nice-select"] li').hover(function(e){
+		$(this).toggleClass('on');
+		e.stopPropagation();
+	});
+	$('[name="nice-select"] li').click(function(e){
+		var val = $(this).text();
+		$(this).parents('[name="nice-select"]').find('input').val(val);
+		$('[name="nice-select"] ul').hide();
+		e.stopPropagation();
+	});
+	$(document).click(function(){
+		$('[name="nice-select"] ul').hide();
+	});
+</script>
+
+</body>
+</html>

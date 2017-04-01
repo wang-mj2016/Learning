@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta charset="UTF-8">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>输入列表</title>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/bootstrap-select.css" />  <!--多项搜索选择-->
+<link rel="stylesheet" href="css/jquery.searchableSelect.css" />  <!--单项搜索选择-->
+<link rel="stylesheet" href="css/reset.css" />
+<style>
+.wrap{
+	width: 600px;
+	margin: 30px auto;
+}
+/*列表整个左右样式*/
+.enter-list .item{
+	margin-bottom: 10px;
+}
+.enter-list .item .list-left{
+	height: 40px;
+	width: 60px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #999;
+}
+.enter-list .item .list-right{
+	width: 89%;
+	position: relative;
+}
+.enter-list .item .list-right .input,
+.enter-list .item .list-right .select{
+	height: 40px;
+	border-radius: 5px;
+	padding: 5px 0px 5px 8px;
+	width: 100%;
+	font-size: 14px;
+}
+.enter-list .item .list-right .input.upload{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.enter-list .item .list-right .input.center{
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+	background: #F2F2F2;
+}
+.enter-list .item .list-right .input[readonly]{
+	cursor: pointer;
+	border: 1px solid #eee;
+}
+/*input模拟select选择*/
+.enter-list .item .nice-select{
+	position: relative;
+}
+.enter-list .item .nice-select input{
+	display: block;
+	background: #fff url(img/down.png) no-repeat right 5px center;
+}
+.enter-list .item .nice-select ul{
+	width: 100%;
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 37px;
+	overflow: hidden;
+	background-color: #fff;
+	border: 1px solid #F2F2F2;
+	max-height: 120px;
+	overflow-y: auto;
+	border-top: 0;
+	z-index: 9999;
+}
+.enter-list .item .nice-select ul li{
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+	padding-left: 8px;
+}
+.enter-list .item .nice-select ul li.on{
+	background-color: #F2F2F2;
+}
+/*多项搜索选择*/
+.enter-list .length{
+	width: 900px;
+}
+.enter-list .item .select-item{
+	vertical-align: top;
+	display: inline-block;
+	width: 80%;
+	margin: 0;
+}
+.enter-list .item .select-item .sp{
+	max-width: 55%;
+	overflow:hidden;
+	float:left;
+}
+.enter-list .item .select-item .sp span{
+	float:left;
+	padding: 6px 11px;
+	background:#32bcec;
+	margin-right:10px;
+	margin-bottom:10px;
+	margin-top: 5px;
+	color:#fff;
+	border-radius:5px;
+	cursor:pointer;
+	font-size: 12px;
+}
+.enter-list .item .select-item .show-tick .aims{
+	color: #333;
+	font-size: 14px;
+	margin-left: 5px;
+}
+/*textarea样式*/
+.enter-list .item .textarea-box{
+	padding-top: 4px;
+}
+.enter-list .item .textarea-box textarea{
+	font-size: 14px;
+	min-height: 100px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <ul class="modal-body enter-list">
+	<li class="item clearfix">
+		<span class="l list-left">手机</span>
+		<div class="l list-right">
+			<input type="text" class="input form-control" placeholder="输入手机号码" />
+		</div>
+	</li>
+	<li class="item clearfix">
+		<span class="l list-left">姓名</span>
+		<div class="l list-right">
+			<input class="input form-control" placeholder="输入姓名" />
+		</div>
+	</li>
+	<li class="item clearfix">
+		<span class="l list-left llll">学校</span>
+		<div class="l list-right">
+			<select class="search-s select">
+				<option value="">选择学校</option>
+				<option>北京大学</option>
+				<option>交通大学</option>
+			</select>
+		</div>
+	</li>
+	<li class="item clearfix">
+		<span class="l list-left">学院</span>
+		<div class="nice-select list-right l" name="nice-select">
+			<input class="input" type="text" placeholder="选择学院" readonly>
+			<ul>
+				<li data-value="1">计算机</li>
+				<li data-value="2">机电</li>
+			</ul>
+		</div>
+	</li>
+	<li class="item clearfix">
+		<span class="l list-left">专业</span>
+		<div class="l list-right">
+			<input class="input form-control" placeholder="输入专业" />
+		</div>
+	</li>
+	<li class="item clearfix">
+		<span class="l list-left">年级</span>
+		<div class="nice-select list-right l" name="nice-select">
+			<input class="input" type="text" placeholder="选择年级" readonly>
+			<ul>
+				<li data-value="1">大三</li>
+				<li data-value="2">大二</li>
+			</ul>
+		</div>
+	</li>
+	<li class="item clearfix">
+		<span class="l list-left">GPA</span>
+		<div class="l list-right">
+			<input class="input form-control" placeholder="输入绩点平均分成绩" />
+		</div>
+	</li>
+	<li class="item length clearfix">
+		<span class="l tit list-left">国家</span>
+		<div class="select-item list-right">
+			<div class="sp">
+				<!--<span title="0"></span>-->
+		    </div>
+			<select id="id_select" class="selectpicker" multiple data-live-search="true">
+		        <option>上海</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>        
+		        <option>中国</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>      
+		        <option>中国</option>
+		        <option>南京</option>                  
+		        <option>北京</option>        
+		        <option>安徽</option>       
+		        <option>中国</option>
+			</select>
+		</div>
+	</li>
+	<li class="item clearfix">
+		<span class="l list-left">备注</span>
+		<div class="l list-right textarea-box">
+			<textarea id="textarea" class="form-control" placeholder="输入对学生的需求备注"></textarea>
+		</div>
+	</li>
+  </ul>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-select.min.js"></script>
+<script src="js/jquery.searchableSelect.js"></script>
+<script>
+//	input模拟select选择
+	$('[name="nice-select"]').click(function(e){
+	    $('[name="nice-select"]').find('ul').hide();
+	    $(this).find('ul').show();
+		e.stopPropagation();
+	});
+	$('[name="nice-select"] li').hover(function(e){
+		$(this).toggleClass('on');
+		e.stopPropagation();
+	});
+	$('[name="nice-select"] li').click(function(e){
+		var val = $(this).text();
+		$(this).parents('[name="nice-select"]').find('input').val(val);
+		$('[name="nice-select"] ul').hide();
+		e.stopPropagation();
+	});
+	$(document).click(function(){
+		$('[name="nice-select"] ul').hide();
+	});
+//	单选搜索框
+	$('select.search-s').searchableSelect();
+//多项搜索选择
+	$(window).on('load', function () {
+		$('.selectpicker').selectpicker({
+			'selectedText': 'cat'
+		});
+		$('.dropdown-toggle').replaceWith("<a class= 'dropdown-toggle' data-toggle='dropdown' data-id='id_select' aria-expanded='true'><span class='filter-option pull-left' style='display:none;'></span><img class='v' src='img/add.png'><span class='v aims'>目标国家</span></a>");
+		$('.selectpicker').on('change',function () {
+			str=$(this).next(".bootstrap-select").find(".filter-option").html();
+			var sa=str.split(",");
+			var i;
+			$(this).parent().find(".sp").html(' ');
+			if(str=="请选择"){
+				$(this).parent().find(".sp").html(' ');	
+				$(this).parent().height(40);
+			}else{
+				for(i=0;i<sa.length;i++){
+				  $(this).parent().find(".sp").html($(this).parent().find(".sp").html()+'<span title="'+sa[i]+'">'+sa[i]+"</span>");
+				}
+				$(this).parent().height($(this).parent().find(".sp").height());
+			}
+		});
+	});
+</script>
+</body>
+</html>

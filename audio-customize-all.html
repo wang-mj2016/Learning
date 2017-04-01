@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>音频自定义全部</title>
+<link rel="stylesheet" href="css/default.css" />
+</head>
+<body style="padding:0;margin:0">
+
+<div id="audio">
+	
+	
+	
+	<div class="hxaudio" id="hxaudio" style="widht:100%;height:32px">
+	  <div class="hxaudio-left hxaudio-vealign-mid"></div>
+	  <div class="hxaudio-rit hxaudio-vealign-mid">
+	    <div class="hxaudio-r-box hxaudio-vealign-box">
+	      <div class="hxaudio-r-l fl" id="nowtime">00:00</div>
+	      <div class="hxaudio-r-m fl">
+	        <div class="hxaudio-line" id="hxaudio_line">
+	          <div class="hxaudio-line-l">
+	            <div class="hxaudio-r-ico" id="hxaudio_rbtn"></div>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="hxaudio-r-r fl" id="maxtime">00:00</div>
+	    </div>
+	  </div>
+	</div>
+	
+	
+	
+</div>
+<script src="js/zepto.min.js"></script>
+<script src="js/audio.js"></script>
+<script type="text/javascript">
+	/**
+	* @class hx-audio
+	* @Author JakeChiu
+	* @createTime 2016-04-29
+	* @version 1.0
+	*/
+	var hxado = function(id,option){
+		new hxAudio.js.main(id,option)
+	}
+	
+	/**
+	 * [hxado description]
+	 * @id {string} 传入容器id
+	 * @arr {array} audio config
+	 * arr.url 影音文件地址
+	 * arr.autoplay 自动播放 默认true
+	 * width,height 宽高需要传入单位
+	 * arr.loop 是否循环播放 默认true
+	 */
+	hxado("audio",{
+		url:'audio/audio1.mp3',
+		loop:false,
+		autoplay:false
+	})	
+</script>
+</body>
+</html>
