@@ -1,0 +1,293 @@
+/*@media only screen and (min-width: 240px) {body{font-size: 12px;}}
+@media only screen and (min-width: 320px) {body{font-size: 12.8px;}}
+@media only screen and (min-width: 360px) {body{font-size: 13.5px;}}
+@media only screen and (min-width: 375px) {body{font-size: 14.2px;}}
+@media only screen and (min-width: 414px) {body{font-size: 15.8px;}}
+@media only screen and (min-width: 720px) {body{font-size: 18px;}}
+@media only screen and (min-width: 800px) {body{font-size: 22px;}}
+@media only screen and (min-width: 1024px) {body{font-size: 24px;}}
+*/
+
+/*css3动画
+	-webkit-transform: ;
+	-moz-transform: ;
+	-ms-transform: ;
+	-o-transform: ;
+	transform: ;
+	
+	-webkit-transition: ;
+	-moz-transition: ;
+	-ms-transition: ;
+	-o-transition: ;
+	transition: ;
+	
+	-webkit-animation: ;
+	-moz-animation: ;
+	-ms-animation: ;
+	-o-animation: ;
+	animation: ;
+	
+@-webkit-keyframes {
+	
+}
+@-moz-keyframes {
+	
+}
+@-ms-keyframes {
+	
+}
+@-o-keyframes {
+	
+}
+@keyframes {
+	
+}
+边线
+:before{
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	height: 50px;
+	width: 1px;
+	background: #F2F2F2;
+}
+:after{
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: "";
+	height: 50px;
+	width: 1px;
+	background: #F2F2F2;
+}
+圆点
+:before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 7px;
+	height: 7px;
+	margin-right: 5px;
+	background: red;
+	border-radius: 100%;
+}
+两行变省略号：
+two_line{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	white-space: normal;
+	word-wrap: break-word;
+	-webkit-box-orient: vertical;
+}
+一行变省略号：
+one_line{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+背景图
+ style="background: url(assets/image/banner-black1.jpg) no-repeat center/auto 100%;"
+背景渐变色
+
+
+
+
+*/
+html,body{
+	width: 100%;
+	height: 100%;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+body,div,button,em,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{
+	margin:0;
+	padding:0;
+	font-family: normal 100% Helvetica Neue,Hiragino Sans GB,WenQuanYi Micro Hei,Microsoft Yahei,sans-serif;
+}
+body{
+	font-size: 1em;
+	background:#fff;
+}
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+table th{
+	font-weight: normal;
+}
+h1,h2,h3,em,label{
+	font-style: normal;
+	font-weight: normal;
+}
+ol,ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	cursor:pointer;
+}
+img{
+	border: none;
+	display:block;
+}
+input,select,textarea,button{
+	outline:medium;
+	border:none;
+	background:none;
+	resize:none
+}
+input[type=file],button,select,a{
+	cursor: pointer;
+}
+select{
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: url(../img/down.png) no-repeat right 10px center;
+}
+.hide{
+	display: none;
+}
+.trans-bg{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+	z-index: 4;
+}
+.pop{
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	border-radius: 5px;
+	background: #fff;
+}
+.pop .close{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+/*清除浮动*/
+.clearfloat{
+	zoom: 1;
+}
+.clearfloat:after{
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+/*通用样式*/
+.l{
+	float: left;
+}
+.r{
+	float: right;
+}
+.v{
+	display: inline-block;
+	vertical-align: middle;
+}
+/*边框*/
+.border-bt{
+	border-bottom: 1px solid #F2F2F2;
+}
+/*随机背景颜色*/
+.pagebg{
+	background: #F2F2F2;
+}
+.bgC0{
+	background: #3366ff;
+}
+.bgC1{
+	background: #FF9999;
+}
+.bgC2{
+	background: #00CCFF;
+}
+.bgC3{
+	background: #00CCFF;
+}
+.bgC4{
+	background: #FF66CC;
+}
+.bgC5{
+	background: #CCCC00;
+}
+.bgC6{
+	background: #FF6666;
+}
+/*背景颜色*/
+.bg1{
+	background: #bd10e0;
+	color: #fff;
+}
+.bg2{
+	background: #F5A623;
+	color: #fff;
+}
+.bg3{
+	background: #eb5b05;
+	color: #fff;
+}
+.bg4{
+	background: #32BCEC;
+	color: #fff;
+}
+/*字体颜色*/
+.color3{
+	color: #333;
+}
+.color6{
+	color: #666;
+}
+.color9{
+	color: #999;
+}
+.colorred{
+	color: red;
+}
+.colorgreen{
+	color: #00c575;
+}
+/*字体大小*/
+.size12{
+	font-size: 12px;
+}
+.size14{
+	font-size: 14px;
+}
+.size16{
+	font-size: 16px;
+}
+.size18{
+	font-size: 18px;
+}
+/*input输入框内placeholder字体变红色字体*/
+.invalid:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: red;
+    opacity: 1;
+}
+.invalid::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: red;
+    opacity: 1;
+}
+input.invalid:-ms-input-placeholder{
+    color: red;
+}
+input.invalid::-webkit-input-placeholder {
+    color: red;
+}

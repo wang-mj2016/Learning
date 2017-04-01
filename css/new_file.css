@@ -1,0 +1,28 @@
+*{
+	margin:0;
+	padding:0;
+	}
+	body{
+		background: #ccc;
+	}
+	.box3{
+		width: 360px;
+		height: 242px;
+		position: relative;
+	}
+	.box3:hover .box4{
+		transform: rotateY(90deg);
+		-webkit-transform: rotateY(90deg);
+		-moz-transform: rotateY(90deg);
+	}
+	.box4{
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: all 1s;
+		-webkit-transition: all 1s;
+		-moz-transition: all 1s;
+		transform-origin: center;
+		-webkit-transform-origin: center;
+		-moz-transform-origin: center;
+	}
