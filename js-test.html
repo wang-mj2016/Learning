@@ -96,7 +96,7 @@ document.write("<br>");
 //Array 数组对象
 //数组对象是一个对象的集合，里边的对象可以是不同类型的。
 //数组的每一个成员对象都有一个“下标”，用来表示它在数组中的位置，是从零开始的
-var myarr1 = new Array(1,2,3,4);
+var myarr1 = new Array(1,2,3,4,8);
 document.write(myarr1[0]);
 document.write("数组的长度" + myarr1.length);
 document.write(myarr1.concat(4,5)+"<br>");//数组连接，不会改变原来的数组，返回一个新数组
@@ -105,9 +105,17 @@ console.log("我是数组变字符串,为string类型:"+typeof(myarr1.join()));
 document.write(myarr1.reverse()+"<br>");//颠倒数组元素顺序,会改变原来的数组，而不会创建新的数组
 document.write(myarr1.slice(1,2)+"<br>");//返回一个新数组，指定的元素包含开头不包含结尾
 document.write(myarr1.sort()+"<br>");//数组排序,参数方法函数，默认按unicode码顺序排列
-
-
-
+//console.log(myarr1);
+var arr2 = [[0,1],[2,3],[4,5]];
+var i=0,j=0;
+var row;
+for (;i<arr2.length;i++){
+	row = arr2[i];
+	console.log('row'+i);
+	for (j=0;j<row.length;j++){
+		console.log(row[j]);
+	}
+}
 
 </script>
 </body>
