@@ -34,6 +34,17 @@
 "number"——如果这个值是数值；
 "object"——如果这个值是对象或null；
 "function"——如果这个值是函数。
+判断是否为数组，
+var arr = [1,2,3,1];     
+alert(arr instanceof Array); // true  
+
+var aa = document.getElementsByClassName('aa');
+console.log(aa instanceof Array);//false
+返回的是一个类似于数组的对象
+
+还有一种NodeList
+var bb = document.queryselect('div');
+console.log(bb instanceof NodeList); //true
 */
 //流程控制语句
 //switch,default类似于else
