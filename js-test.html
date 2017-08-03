@@ -93,8 +93,9 @@ document.write(message.length);
 document.write(message.toUpperCase());
 document.write(message.charAt(0));//返回指定位置的字符
 document.write(message.indexOf("lo"));//返回某个指定的字符串值在字符串中首次出现的位置,假如有第2个参数（数字），表示从那个位置起开始检索
-document.write(message.split(""));//将字符串分割为字符串数组，并返回此数组.假如有第2个参数（数字），表示分割的次数
-console.log("我是字符串变数组,为object类型:"+typeof(message.split("")));
+document.write("<br /><br />"+"message.split(): "+message.split(" ")+"<br /><br />");//将字符串分割为字符串数组，并返回此数组.假如有第2个参数（数字），表示分割的次数
+console.log("我是字符串变数组,为object类型:"+typeof(message.split(" ")));
+document.write("测试数组使用indexOf的情况：message.split('').indexOf('love')："+message.split(" ").indexOf("javascript")+"<br /><br />");//返回再数组中的位置下标
 document.write(message.substring(2));//提取字符串包含开始位置，如果有第2个参数不包含结束位置
 document.write(message.substr(2,4));//提取指定数目的字符串，参数1表示起始位置，参数2（非必须）表示提取的字符串的长度
 //Math对象
@@ -116,6 +117,7 @@ console.log("我是数组变字符串,为string类型:"+typeof(myarr1.join()));
 document.write(myarr1.reverse()+"<br>");//颠倒数组元素顺序,会改变原来的数组，而不会创建新的数组
 document.write(myarr1.slice(1,2)+"<br>");//返回一个新数组，指定的元素包含开头不包含结尾
 document.write(myarr1.sort()+"<br>");//数组排序,参数方法函数，默认按unicode码顺序排列
+document.write(myarr1.indexOf(3));//返回某个指定的字符在数组中首次出现的位置。如果检测数字就不需要加引号，如果是字符串需要添加引号
 //console.log(myarr1);
 var arr2 = [[0,1],[2,3],[4,5]];
 var i=0,j=0;

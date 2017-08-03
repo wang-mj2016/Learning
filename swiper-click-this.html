@@ -68,14 +68,14 @@
 <script>
 
 $(".swiper-container").swiper({
-		loop : true,
-		slidesPerView: 'auto',
+	loop : true,
+	slidesPerView: 'auto',
     centeredSlides: true,
     paginationClickable: true,
     spaceBetween: 10,
     onTap: function(swiper){
-            var index= swiper['clickedIndex'];
-            a(index);
+	    var index= swiper['clickedIndex'];
+	    a(index);
 	}
 });
 function a(i){

@@ -37,6 +37,17 @@
 <script src="js/jquery.min.js"></script>
 <script>
 var pop = document.getElementsByClassName('pop');
+var	module = {
+	aa: 'qq',
+	bb: 'dddd'
+}
+var arr = [];
+for (var aa in module) {
+	arr.push(module[aa]);
+	console.log(module[aa]);
+}
+arr.shift();
+console.log(arr); // ["qq", "dddd"]
 // 点击按钮做切换
 function showpop(){
 	for (var i = 0;i <pop.length; i++) {
