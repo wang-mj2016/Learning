@@ -33,134 +33,64 @@ src="/assets/image/wechart_revision
 <title>临时存放</title>
 <link rel="stylesheet" href="css/reset.css" />
 <!--<link rel="stylesheet" href="css/mui.min.css" />-->
-<link rel="stylesheet" href="css/swiper.min.css" />
+<!-- <link rel="stylesheet" href="css/swiper.min.css" /> -->
 <!--[if lt IE 9]>
   <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script>
 <![endif]-->
 <style>
-    html, body {
-        position: relative;
-        height: 100%;
-    }
-    body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color:#000;
-        margin: 0;
-        padding: 0;
-    }
-    .swiper-container {
-        width: 100%;
-        height: 100%;
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
-
+.bb {
+    display: block;
+    width: 80px;
+    height: 25px;
+    border: 1px solid red;
+}
 </style>
 </head>
 <body>
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
-        <div class="swiper-slide">Slide 10</div>
-    </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+<!-- 测试获取元素的class类名 -->
+<!-- <div class="aaa"></div> -->
+<input class="bb" esapp-id="beneficiaryAccountNumber" type="text" value="" />
+
+<div>
+    <div>dk-filter-port-area</div>
 </div>
 
 
-
-	
 <!--<script src="js/vue.min.js"></script>-->
 <script src="js/jquery.min.js"></script>
+<script src="js/learnJquery.js"></script>
 <!--<script src="js/mui.min.js"></script>-->
 <!--<script src="js/mui.pullToRefresh.js"></script>-->
 <!--<script src="js/mui.pullToRefresh.material.js"></script>-->
-<script src="js/swiper.min.js"></script>
+<!-- <script src="js/swiper.min.js"></script> -->
 <!--<script src="js/update.js"></script>-->
 <script>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 3,
-        paginationClickable: true,
-        spaceBetween: 30
-    });
 
-//var person = new Object();
-//person.name = "wangming";
-//person.age = 22;
-//person.say = function(){
-//	console.log(this.name)
-//}
+function compare(value1, value2) {
+    return value2 - value1;
+}
+var arrTest = [4,3,6,2,1];
+arrTest.sort(compare);
+console.log('arrTest', arrTest);
+// console.log('jsonBook', leftPos);
 
-
-//	function Person(){
-//	}
-//	var friend = new Person();
-//	Person.prototype = {
-//		constructor: Person,
-//		name : "Nicholas",
-//		age : 29,
-//		job : "Software Engineer",
-//		sayName : function () {
-//		alert(this.name);
-//		}
-//	};
-//	var friendone = new Person();
-//	friendone.sayName(); //error
-
-
-
-//原生js
-//console.log(document.querySelectorAll("p")[].style.backgroundColor)
-//	function myFunction() {
-//  document.querySelectorAll("p")[].style.backgroundColor = "red";
-//}   
+// console.log('operation: ', topPos);
 
 
 
 
-
-
-
-//vue.js
-//var demo = new Vue({
-//el: '#demo',
-//data: {
-//  message: 'Hello Vue.js!'
-//}
-//})
-
-
-
-
+// $('body').delegate('[esapp-id=beneficiaryAccountNumber]', "input", function(){
+//     // $('.bb').val('');
+//     var reg = /^[0-9]*[1-9][0-9]*$|^[0-9]*.[0-9]{1,2}$/;
+//     var num = $(this).val();
+//     if (reg.test(num)) {
+//         console.log('校验通过');
+//     } else {
+//         console.log('校验不通过');
+//     }
+//     // console.log('数字', num);
+// });
 
 
 

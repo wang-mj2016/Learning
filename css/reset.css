@@ -61,6 +61,16 @@
 	width: 1px;
 	background: #F2F2F2;
 }
+三角
+:before {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    content: "";
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #33C7FF;
+}
 圆点
 :before{
 	content: "";
@@ -87,6 +97,14 @@ one_line{
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+}
+表格中元素换行不变...：
+auto_newline{
+	max-width: 220px;
+    min-width: 220px;
+    width: 220px;
+    white-space: initial;
+    text-align: left;
 }
 背景图
  style="background: url(assets/image/banner-black1.jpg) no-repeat center/auto 100%;"
