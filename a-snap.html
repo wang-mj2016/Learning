@@ -45,17 +45,42 @@ src="/assets/image/wechart_revision
     height: 25px;
     border: 1px solid red;
 }
+#test {
+    position: relative;
+    height: 1000px;
+    overflow: hidden;
+    border: 1px solid red;
+}
+.cont {
+    height: 100px;
+    /*background: #999*/
+}
+.test-height {
+    height: 50px;
+    /*width:20px;*/
+    color: red;
+    background: #999;
+}
+.test-height:empty::before{  
+    color:red;  
+    content:attr(placeholder);
+}
 </style>
 </head>
 <body>
 <!-- 测试获取元素的class类名 -->
 <!-- <div class="aaa"></div> -->
 <input class="bb" esapp-id="beneficiaryAccountNumber" type="text" value="" />
-
-<div>
-    <div>dk-filter-port-area</div>
+<div id="test">
+    <div class="cont">
+        <div class="test-height" contenteditable="true" placeholder="请输入文字">
+            <p></p>
+        </div>
+    </div>
+    <!-- <div class="test-height">fffffffffffffff</div> -->
 </div>
 
+<button onclick="test()">点击</button>
 
 <!--<script src="js/vue.min.js"></script>-->
 <script src="js/jquery.min.js"></script>
@@ -67,18 +92,14 @@ src="/assets/image/wechart_revision
 <!--<script src="js/update.js"></script>-->
 <script>
 
-function compare(value1, value2) {
-    return value2 - value1;
-}
-var arrTest = [4,3,6,2,1];
-arrTest.sort(compare);
-console.log('arrTest', arrTest);
-// console.log('jsonBook', leftPos);
+var str = "2018-03-02 12:33:22";
+var now = Date.parse(new Date());
+console.log('now', now);
 
-// console.log('operation: ', topPos);
-
-
-
+// 错误
+// this.$Message.error('车牌号位数不正确');
+// 成功
+// this.$Message.success('正在登录');
 
 // $('body').delegate('[esapp-id=beneficiaryAccountNumber]', "input", function(){
 //     // $('.bb').val('');
@@ -92,6 +113,12 @@ console.log('arrTest', arrTest);
 //     // console.log('数字', num);
 // });
 
+// this.$nextTick(function () {
+//     console.log('元素', document.querySelector("#user-question"+(this.questionList.length-1)));
+//     if(this.questionList.length) document.querySelector("#user-question"+(this.questionList.length-1)).scrollIntoView(true);
+// })
+
+                    
 
 
 </script>
